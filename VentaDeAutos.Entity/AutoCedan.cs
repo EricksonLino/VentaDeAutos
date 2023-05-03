@@ -10,6 +10,9 @@ namespace VentaDeAutos.Entity
         [StringLength(50)]
         public string Marca { get; set; }
         [Required]
+        [StringLength(30)]
+        public string color { get; set; }
+        [Required]
         [StringLength(50)]
         public string Modelo { get; set; }
         [Required]
