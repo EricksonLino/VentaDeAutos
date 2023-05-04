@@ -30,5 +30,12 @@ namespace VentaDeAutos.Repository.Implementaciones
             this.context.AutoCedans.Add(autoCedan);
             await this.context.SaveChangesAsync();
         }
+
+        public async Task EliminarAutoCedan(AutoCedan autoCedan)
+        {
+            this.context.AutoCedans.Remove(autoCedan);
+            await this.context.SaveChangesAsync();
+
+        }
     }
 }

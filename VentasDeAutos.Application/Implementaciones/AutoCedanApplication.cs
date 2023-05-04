@@ -37,5 +37,11 @@ namespace VentaDeAutos.Application.Implementaciones
             var autocedan = this.mapper.Map<AutoCedan>(autoCedanCreacionDto);
             await this.autoCedanRepository.InsertarAutoCedan(autocedan);
         }
+
+        public async Task EliminarAutoCedan(int id)
+        {
+            var autocedan = await this.autoCedanRepository.ObtenerAuto(id);
+            await this.autoCedanRepository.EliminarAutoCedan(autocedan);
+        }
     }
 }

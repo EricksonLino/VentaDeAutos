@@ -40,6 +40,13 @@ namespace VentaDeAutos.API.Controllers
             return Ok();
         }
 
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> EliminarAutoCedan([FromRoute] int id)
+        {
+            await this.autoCedanApplication.EliminarAutoCedan(id);
+            return Ok();
+        }
+
 
 
     }
