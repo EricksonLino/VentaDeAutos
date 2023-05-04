@@ -33,5 +33,14 @@ namespace VentaDeAutos.API.Controllers
             return autocedan;
         }
 
+        [HttpPost]
+        public async Task<ActionResult> InsertarAutoCedan(AutoCedanCreacionDto autoCedanCreacion)
+        {
+            await this.autoCedanApplication.InsertarAutoCedan(autoCedanCreacion);
+            return Ok();
+        }
+
+
+
     }
 }

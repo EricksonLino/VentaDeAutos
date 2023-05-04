@@ -12,6 +12,7 @@ namespace VentaDeAutos.Repository.Implementaciones
         {
             this.context = context;
         }
+
         public async Task<List<AutoCedan>> ListarAutos()
         {
             var autosCedan = await this.context.AutoCedans.ToListAsync();
@@ -22,6 +23,12 @@ namespace VentaDeAutos.Repository.Implementaciones
         {
             var AutoCedan = await this.context.AutoCedans.FirstOrDefaultAsync(x => x.Id == id);
             return AutoCedan;
+        }
+
+        public async Task InsertarAutoCedan(AutoCedan autoCedan)
+        {
+            this.context.AutoCedans.Add(autoCedan);
+            await this.context.SaveChangesAsync();
         }
     }
 }

@@ -1,11 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace VentaDeAutos.Entity
+namespace VentaDeAutos.Application.Dtos
 {
-    public class AutoCedan
+    public class AutoCedanCreacionDto
     {
-        [Key]
-        public int Id { get; set; }
         [Required]
         [StringLength(50)]
         public string Marca { get; set; }
@@ -26,6 +24,5 @@ namespace VentaDeAutos.Entity
         public string Capacidad { get; set; }
         [Required]
         public int Stock { get; set; }
-
     }
 }

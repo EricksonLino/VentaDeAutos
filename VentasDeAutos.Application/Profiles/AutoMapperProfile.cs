@@ -10,7 +10,8 @@ namespace VentaDeAutos.Application.Profiles
         {
             CreateMap<AutoCedan, AutoCedanDetalleDto>();
             CreateMap<AutoCedan, AutoCedanDto>();
-            
+
+            CreateMap<AutoCedanCreacionDto, AutoCedan>();
         }
     }
 }

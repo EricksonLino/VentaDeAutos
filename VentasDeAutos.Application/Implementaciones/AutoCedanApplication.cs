@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using VentaDeAutos.Application.Dtos;
 using VentaDeAutos.Application.Interfaces;
+using VentaDeAutos.Entity;
 using VentaDeAutos.Repository.Interfaces;
 
 namespace VentaDeAutos.Application.Implementaciones
@@ -15,6 +16,7 @@ namespace VentaDeAutos.Application.Implementaciones
             this.autoCedanRepository = autoCedanRepository;
             this.mapper = mapper;
         }
+
         public async Task<List<AutoCedanDto>> ListarAutos()
         {
             var autoscedan = await this.autoCedanRepository.ListarAutos();
@@ -24,10 +26,16 @@ namespace VentaDeAutos.Application.Implementaciones
 
         public async Task<AutoCedanDetalleDto> ObtenerAuto(int id)
         {
-            var autoscedan = await this.autoCedanRepository.ObtenerAuto(id);
-            var autoCedanDetalleDto = this.mapper.Map<AutoCedanDetalleDto>(autoscedan);
+            var autocedan = await this.autoCedanRepository.ObtenerAuto(id);
+            var autoCedanDetalleDto = this.mapper.Map<AutoCedanDetalleDto>(autocedan);
 
             return autoCedanDetalleDto;
+        }
+
+        public async Task InsertarAutoCedan(AutoCedanCreacionDto autoCedanCreacionDto)
+        {
+            var autocedan = this.mapper.Map<AutoCedan>(autoCedanCreacionDto);
+            await this.autoCedanRepository.InsertarAutoCedan(autocedan);
         }
     }
 }
