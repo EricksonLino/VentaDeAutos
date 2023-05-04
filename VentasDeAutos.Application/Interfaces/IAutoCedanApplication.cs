@@ -8,5 +8,6 @@ namespace VentaDeAutos.Application.Interfaces
         Task<AutoCedanDetalleDto> ObtenerAuto(int id);
         Task InsertarAutoCedan(AutoCedanCreacionDto autoCedanCreacionDto);
         Task EliminarAutoCedan(int id);
+        Task ActualizarAutoCedan(int id, AutoCedanActualizarDto autoCedanActualizarDto);
     }
 }

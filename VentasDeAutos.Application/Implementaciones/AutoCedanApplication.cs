@@ -43,5 +43,13 @@ namespace VentaDeAutos.Application.Implementaciones
             var autocedan = await this.autoCedanRepository.ObtenerAuto(id);
             await this.autoCedanRepository.EliminarAutoCedan(autocedan);
         }
+
+        public async Task ActualizarAutoCedan(int id, AutoCedanActualizarDto autoCedanActualizar)
+        {
+            var autocedan = await this.autoCedanRepository.ObtenerAuto(id);
+            this.mapper.Map(autoCedanActualizar, autocedan);
+
+            await this.autoCedanRepository.ActualizarAutoCedan(autocedan);
+        }
     }
 }

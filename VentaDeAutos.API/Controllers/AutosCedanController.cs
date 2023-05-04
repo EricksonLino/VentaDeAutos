@@ -47,6 +47,12 @@ namespace VentaDeAutos.API.Controllers
             return Ok();
         }
 
+        [HttpPut("{id}")]
+        public async Task<ActionResult> ActualizarAutoCedan([FromRoute] int id, [FromBody] AutoCedanActualizarDto autoCedanActualizarDto)
+        {
+            await this.autoCedanApplication.ActualizarAutoCedan(id, autoCedanActualizarDto);
+            return Ok();
+        }
 
 
     }

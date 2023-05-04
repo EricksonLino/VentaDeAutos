@@ -8,5 +8,6 @@ namespace VentaDeAutos.Repository.Interfaces
         Task<AutoCedan> ObtenerAuto(int id);
         Task InsertarAutoCedan(AutoCedan autoCedan);
         Task EliminarAutoCedan(AutoCedan autoCedan);
+        Task ActualizarAutoCedan(AutoCedan autoCedan);
     }
 }
