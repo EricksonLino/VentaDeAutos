@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using VentaDeAutos.Application.Implementaciones;
 using VentaDeAutos.Application.Interfaces;
+using VentaDeAutos.Application.Profiles;
 using VentaDeAutos.Repository;
 using VentaDeAutos.Repository.Implementaciones;
 using VentaDeAutos.Repository.Interfaces;
@@ -12,6 +13,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(conf =>
                                 conf.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IAutoCedanRepository, AutoCedanRepository>();
 builder.Services.AddScoped<IAutoCedanApplication, AutoCedanApplication>();
+
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

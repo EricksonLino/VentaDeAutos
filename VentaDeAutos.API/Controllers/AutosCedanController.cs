@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using VentaDeAutos.Application.Dtos;
 using VentaDeAutos.Application.Interfaces;
-using VentaDeAutos.Entity;
 
 namespace VentaDeAutos.API.Controllers
 {
@@ -17,21 +16,21 @@ namespace VentaDeAutos.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<AutoCedan>>> ListarAutos()
+        public async Task<ActionResult<List<AutoCedanDto>>> ListarAutos()
         {
             var autoscedan = await this.autoCedanApplication.ListarAutos();
             return autoscedan;
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<AutoCedan>> ObtenerAuto(int id)
+        public async Task<ActionResult<AutoCedanDetalleDto>> ObtenerAuto(int id)
         {
-            var autoscedan = await this.autoCedanApplication.ObtenerAuto(id);
-            if (autoscedan == null)
+            var autocedan = await this.autoCedanApplication.ObtenerAuto(id);
+            if (autocedan == null)
             {
                 return NotFound($"No se encontro el Auto con ID {id}");
             }
-            return autoscedan;
+            return autocedan;
         }
 
     }
