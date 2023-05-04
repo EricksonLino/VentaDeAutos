@@ -23,5 +23,16 @@ namespace VentaDeAutos.API.Controllers
             return autoscedan;
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<AutoCedan>> ObtenerAuto(int id)
+        {
+            var autoscedan = await this.autoCedanApplication.ObtenerAuto(id);
+            if (autoscedan == null)
+            {
+                return NotFound($"No se encontro el Auto con ID {id}");
+            }
+            return autoscedan;
+        }
+
     }
 }

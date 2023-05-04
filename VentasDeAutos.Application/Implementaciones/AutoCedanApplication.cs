@@ -17,5 +17,11 @@ namespace VentaDeAutos.Application.Implementaciones
             var autoscedan = await this.autoCedanRepository.ListarAutos();
             return autoscedan;
         }
+
+        public async Task<AutoCedan> ObtenerAuto(int id)
+        {
+            var AutoCedan = await this.autoCedanRepository.ObtenerAuto(id);
+            return AutoCedan;
+        }
     }
 }

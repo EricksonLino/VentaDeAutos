@@ -5,5 +5,6 @@ namespace VentaDeAutos.Repository.Interfaces
     public interface IAutoCedanRepository
     {
         Task<List<AutoCedan>> ListarAutos();
+        Task<AutoCedan> ObtenerAuto(int id);
     }
 }
